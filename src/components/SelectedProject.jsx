@@ -1,10 +1,7 @@
 import { useRef, useState } from "react"
 import Tasks from "./Tasks";
 
-export default function SelectedProject({project, deleteProject, addedTask, tasks}) {
-    const handleEnteredNewTask = (taskName) => {
-        addedTask(taskName);
-    }
+export default function SelectedProject({project, deleteProject, onAddTask, tasks, onDeleteTask}) {
 
     return <section>
         <header className="pb-4 mb-4 border-b-2 border-stone-300">
@@ -22,6 +19,6 @@ export default function SelectedProject({project, deleteProject, addedTask, task
                 </button>
             </div>
         </header>
-        <Tasks enteredNewTask={handleEnteredNewTask} tasks={tasks}/>
+        <Tasks onAddTask={onAddTask} deleteTask={onDeleteTask} tasks={tasks}/>
     </section>
 }
